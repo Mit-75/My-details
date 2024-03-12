@@ -15,26 +15,26 @@ final class LoginViewController: UIViewController {
     private let userName = "Mit"
     private let password = "qwerty"
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor(named: "Proba")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let welcomeVC = segue.destination as? WelcomeViewController {
+            welcomeVC.welcome = "Welcome, \(userTextField.text ?? "")!"
+        }
+    }
     
     @IBAction func logInButton() {
         guard let imputText = userTextField.text, !imputText.isEmpty else {
             showAlert(withTitle: "Text field is empty", andMessage: "Please enter your name")
             return
-        } 
-        
+        }
         guard userTextField.text == userName && passwordTextField.text == password else {
             showAlert(withTitle: "Wrong format", andMessage: "Please enter your name")
             return
         }
-        
-//        let userNamePattern = "^[a-zA-Z ]{3-20}$"
-//        let isUsernameValid = NSPredicate(format: "SELF MATCHES %@", userNamePattern)
-//            .evaluate(with: imputText)
-//        if !isUsernameValid {
-//            showAlert(withTitle: "Wrong format", andMessage: "Please enter your name")
-//            return
-//       }
-        
     }
     
     @IBAction func userNameButton() {
@@ -42,12 +42,6 @@ final class LoginViewController: UIViewController {
     }
     @IBAction func passwordButton() {
         showAlert(withTitle: "qwerty", andMessage: "Good Luck!")
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let welcomeVC = segue.destination as? WelcomeViewController {
-            welcomeVC.welcome = "Welcome, \(userTextField.text ?? "")!"
-        }
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
