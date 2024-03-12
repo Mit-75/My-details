@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		331550812BA0725A00B8EC9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331550802BA0725A00B8EC9B /* AppDelegate.swift */; };
 		331550832BA0725A00B8EC9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331550822BA0725A00B8EC9B /* SceneDelegate.swift */; };
-		331550852BA0725A00B8EC9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331550842BA0725A00B8EC9B /* ViewController.swift */; };
+		331550852BA0725A00B8EC9B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331550842BA0725A00B8EC9B /* LoginViewController.swift */; };
 		331550882BA0725A00B8EC9B /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 331550872BA0725A00B8EC9B /* Base */; };
 		3315508A2BA0725C00B8EC9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 331550892BA0725C00B8EC9B /* Assets.xcassets */; };
 		3315508D2BA0725C00B8EC9B /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3315508C2BA0725C00B8EC9B /* Base */; };
+		331550952BA077AC00B8EC9B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331550942BA077AC00B8EC9B /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3315507D2BA0725A00B8EC9B /* My details.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My details.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		331550802BA0725A00B8EC9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		331550822BA0725A00B8EC9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		331550842BA0725A00B8EC9B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		331550842BA0725A00B8EC9B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		331550872BA0725A00B8EC9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		331550892BA0725C00B8EC9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3315508C2BA0725C00B8EC9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3315508E2BA0725C00B8EC9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		331550942BA077AC00B8EC9B /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,40 @@
 		3315507F2BA0725A00B8EC9B /* My details */ = {
 			isa = PBXGroup;
 			children = (
-				331550802BA0725A00B8EC9B /* AppDelegate.swift */,
-				331550822BA0725A00B8EC9B /* SceneDelegate.swift */,
-				331550842BA0725A00B8EC9B /* ViewController.swift */,
-				331550862BA0725A00B8EC9B /* Main.storyboard */,
+				331550972BA07BB000B8EC9B /* ViewControllers */,
+				331550962BA07BA100B8EC9B /* App */,
+				331550982BA07BD800B8EC9B /* Storyboards */,
 				331550892BA0725C00B8EC9B /* Assets.xcassets */,
-				3315508B2BA0725C00B8EC9B /* LaunchScreen.storyboard */,
 				3315508E2BA0725C00B8EC9B /* Info.plist */,
 			);
 			path = "My details";
+			sourceTree = "<group>";
+		};
+		331550962BA07BA100B8EC9B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				331550802BA0725A00B8EC9B /* AppDelegate.swift */,
+				331550822BA0725A00B8EC9B /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		331550972BA07BB000B8EC9B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				331550842BA0725A00B8EC9B /* LoginViewController.swift */,
+				331550942BA077AC00B8EC9B /* WelcomeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		331550982BA07BD800B8EC9B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				331550862BA0725A00B8EC9B /* Main.storyboard */,
+				3315508B2BA0725C00B8EC9B /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +165,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				331550852BA0725A00B8EC9B /* ViewController.swift in Sources */,
+				331550852BA0725A00B8EC9B /* LoginViewController.swift in Sources */,
+				331550952BA077AC00B8EC9B /* WelcomeViewController.swift in Sources */,
 				331550812BA0725A00B8EC9B /* AppDelegate.swift in Sources */,
 				331550832BA0725A00B8EC9B /* SceneDelegate.swift in Sources */,
 			);
@@ -307,9 +335,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "DmitryParhomenko.My-details";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -335,9 +367,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "DmitryParhomenko.My-details";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
