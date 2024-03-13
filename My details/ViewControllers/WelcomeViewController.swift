@@ -15,7 +15,7 @@ final class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "Proba")
-        welcomeLable.text = welcome
+        welcomeLable.text = "Welcome, \(welcome ?? "") 😉!"
     }
     
     @IBAction func logOutButton() {
