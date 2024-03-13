@@ -10,40 +10,65 @@ import Foundation
 struct User {
     let person: Person
     
-    private let userName = "User"
-    private let passvord = "qwerty"
+    let userName = "User"
+    let passvord = "123"
+    
+    static func getUser() -> User {
+        User(
+            person: Person(
+                name: "Дмитрий",
+                age: 48,
+                surname: "Пархоменко",
+                work: """
+                "Россети" (уволился 01.02.2024)
+                """,
+                description: """
+                Родился 27.08.1975г. Образование высшее
+                техническое: Челябинский государственный
+                технический университет, 1997г.
+                С 1997 по 2004 проработал в компании
+                Россети, прошел путь от инженера СРЗиА
+                до директора производственного отделения.
+                На данный момент свободен, определяюсь.
+                Женат, трое детей.
+                Увлечения: Swift, активный отдых, аудио
+                книги и дом с баней.
+                """,
+                family: Family.family,
+                location: Location(
+                    region: "Cвердловская область",
+                    sity: "г.Екатеринбург",
+                    addsress: "Проспект Академика Сахарова д.73, кв. 178"
+                )
+            )
+        )
+    }
 }
 
 struct Person {
     let name: String
+    let age: Int
     let surname: String
     let work: String
+    let description: String
     let family: Family
     let location: Location
     
-    
     var fullName: String {
-        name + surname
+        "\(surname) \(name)"
     }
 }
 
 enum Family: String {
-    case wife
-    case children
-    
-    var definition: String {
-        switch self {
-        case .wife:
-            "Татьяна"
-        case .children:
-            """
+    case family = """
+            Супруга.......Татьяна Николаевна,
+            преподаватель английского языка
+        
             Мои дети:
-        старший сын...Алексей, IOS Developer
-        дочь..........Екатерина, студент
-        младший сын...Антон, школьник
+            старший сын...Алексей, IOS Developer
+            дочь..........Екатерина, студент
+            младший сын...Антон, школьник
         """
-        }
-    }
 }
 
 struct Location {

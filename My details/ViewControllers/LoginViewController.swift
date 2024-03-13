@@ -8,21 +8,32 @@
 import UIKit
 
 final class LoginViewController: UIViewController {
-
+    
+    let getUser = User.getUser()
+    
     @IBOutlet var userTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    
-    private let userName = "User"
-    private let password = "qwerty"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "Proba")
+        userTextField.text = "User"
+        passwordTextField.text = "123"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let welcomeVC = segue.destination as? WelcomeViewController {
-            welcomeVC.welcome = userName
+        guard let tabBarVC = segue.destination as? UITabBarController else { return }
+        
+        tabBarVC.viewControllers?.forEach{ viewController in
+            if let welcomeVC = viewController as? WelcomeViewController {
+                welcomeVC.welcome = userTextField.text
+                welcomeVC.getUser = getUser
+            } else if let personVC = viewController as? PersonViewController {
+                personVC.getUser = getUser
+            } else if let navigationVC = viewController as? UINavigationController {
+                let aboutMyVC = navigationVC.topViewController as? AboutMyViewController
+                aboutMyVC?.getUser = getUser
+            }
         }
     }
     
@@ -39,11 +50,11 @@ final class LoginViewController: UIViewController {
             )
             return
         }
-        guard userTextField.text == userName
-                && passwordTextField.text == password else {
+        guard userTextField.text == getUser.userName
+                && passwordTextField.text == getUser.passvord else {
             showAlert(
                 withTitle: "Invalid Login or Password",
-                andMessage: "Please enter correct your data") {
+                andMessage: "Please enter correct your Login and Password") {
                     self.passwordTextField.text = ""
                 }
             return
@@ -52,13 +63,13 @@ final class LoginViewController: UIViewController {
     
     @IBAction func userNameButton() {
         showAlert(
-            withTitle: "User Name: \(userName)",
+            withTitle: "User Name: \(getUser.userName)",
             andMessage: "Good Luck 😉!"
         )
     }
     @IBAction func passwordButton() {
         showAlert(
-            withTitle: "Password: \(password)",
+            withTitle: "Password: \(getUser.passvord)",
             andMessage: "Good Luck 😉!"
         )
     }
@@ -67,8 +78,11 @@ final class LoginViewController: UIViewController {
         self.userTextField.text = ""
         self.passwordTextField.text = ""
     }
+}
+
+extension LoginViewController {
     
-    private func showAlert(
+    func showAlert(
         withTitle title: String,
         andMessage message: String,
         completion: (() -> Void)? = nil
@@ -85,6 +99,5 @@ final class LoginViewController: UIViewController {
         present(allert, animated: true)
     }
 }
-
 
 
