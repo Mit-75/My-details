@@ -8,7 +8,7 @@
 import UIKit
 
 final class AboutMyViewController: UIViewController {
-    var getUser: User!
+    var user: User!
     
     @IBOutlet var aboutMy: UILabel!
     @IBOutlet var family: UILabel!
@@ -17,9 +17,14 @@ final class AboutMyViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "Fon")
         
-        aboutMy.text = getUser.person.description
-        family.text = getUser.person.family.rawValue
+        aboutMy.text = user.person.description
+        family.text = user.person.family.rawValue
 
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let lastVC = segue.destination as? LastViewController else {return}
+        lastVC.user = user
+        
     }
 
 

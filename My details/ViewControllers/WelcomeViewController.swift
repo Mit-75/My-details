@@ -9,7 +9,7 @@ import UIKit
 
 final class WelcomeViewController: UIViewController {
     
-    var getUser: User!
+    var user: User!
     
     @IBOutlet var welcomeLable: UILabel!
     @IBOutlet var myNameLabel: UILabel!
@@ -22,7 +22,7 @@ final class WelcomeViewController: UIViewController {
         welcomeLable.text = "Welcome, \(welcome ?? "") 😉!"
         myNameLabel.text = """
         My name is
-        \(getUser.person.fullName)
+        \(user.person.fullName)
      """
     }
     

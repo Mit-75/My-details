@@ -8,6 +8,7 @@
 import UIKit
 
 class LastViewController: UIViewController {
+    var user: User!
     
     @IBOutlet var imageView: UIImageView!
     

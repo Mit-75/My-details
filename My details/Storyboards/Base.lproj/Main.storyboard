@@ -35,7 +35,6 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Log in"/>
                                         <connections>
-                                            <action selector="logInButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="KpR-HD-g7L"/>
                                             <segue destination="DAE-4F-HQZ" kind="presentation" modalPresentationStyle="fullScreen" id="nTT-t6-gHw"/>
                                         </connections>
                                     </button>
@@ -369,6 +368,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="DAE-4F-HQZ" customClass="TabBarViewController" customModule="My_details" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vyo-fY-55J">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

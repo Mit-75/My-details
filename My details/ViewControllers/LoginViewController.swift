@@ -9,32 +9,22 @@ import UIKit
 
 final class LoginViewController: UIViewController {
     
-    let getUser = User.getUser()
-    
     @IBOutlet var userTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    
+    private let user = User.getUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "Proba")
-        userTextField.text = "User"
-        passwordTextField.text = "123"
+        userTextField.text = user.userName
+        passwordTextField.text = user.passvord
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let tabBarVC = segue.destination as? UITabBarController else { return }
+        guard let tabBarVC = segue.destination as? TabBarViewController else { return }
+        tabBarVC.user = user
         
-        tabBarVC.viewControllers?.forEach{ viewController in
-            if let welcomeVC = viewController as? WelcomeViewController {
-                welcomeVC.welcome = userTextField.text
-                welcomeVC.getUser = getUser
-            } else if let personVC = viewController as? PersonViewController {
-                personVC.getUser = getUser
-            } else if let navigationVC = viewController as? UINavigationController {
-                let aboutMyVC = navigationVC.topViewController as? AboutMyViewController
-                aboutMyVC?.getUser = getUser
-            }
-        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -42,34 +32,31 @@ final class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @IBAction func logInButton() {
-        guard let imputText = userTextField.text, !imputText.isEmpty else {
-            showAlert(
-                withTitle: "Text field is empty",
-                andMessage: "Please enter your name"
-            )
-            return
-        }
-        guard userTextField.text == getUser.userName
-                && passwordTextField.text == getUser.passvord else {
+    override func shouldPerformSegue(
+        withIdentifier identifier: String,
+        sender: Any?
+    ) -> Bool {
+        guard userTextField.text == user.userName,
+                passwordTextField.text == user.passvord else {
             showAlert(
                 withTitle: "Invalid Login or Password",
                 andMessage: "Please enter correct your Login and Password") {
                     self.passwordTextField.text = ""
                 }
-            return
+            return false
         }
+        return true
     }
     
     @IBAction func userNameButton() {
         showAlert(
-            withTitle: "User Name: \(getUser.userName)",
+            withTitle: "User Name: \(user.userName)",
             andMessage: "Good Luck 😉!"
         )
     }
     @IBAction func passwordButton() {
         showAlert(
-            withTitle: "Password: \(getUser.passvord)",
+            withTitle: "Password: \(user.passvord)",
             andMessage: "Good Luck 😉!"
         )
     }
@@ -78,11 +65,8 @@ final class LoginViewController: UIViewController {
         self.userTextField.text = ""
         self.passwordTextField.text = ""
     }
-}
-
-extension LoginViewController {
     
-    func showAlert(
+    private func showAlert(
         withTitle title: String,
         andMessage message: String,
         completion: (() -> Void)? = nil
